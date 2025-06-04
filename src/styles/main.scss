@@ -1,15 +1,17 @@
 @use 'variaveis';
 @use 'hero';
+@use 'shows';
+@use 'combos';
 
 @font-face {
     font-family: Avenir;
-    src: url(../../assets/fonts/Avenir-Regular.woff2) format(woff2);
+    src: url('../../assets/fonts/Avenir-Regular.woff2') format('woff2');
     font-weight: 400;
 }
 
 @font-face {
     font-family: Avenir;
-    src: url(../../assets/fonts/Avenir-Bold.woff2) format(woff2);
+    src: url('../../assets/fonts/Avenir-Bold.woff2') format('woff2');
     font-weight: 700;
 }
 
@@ -17,11 +19,11 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family: Avenir, sans-serif;
 }
 
 body{
     background-color:variaveis.$bgColor;
-    font-family: Avenir, sans-serif;
 }
 
 @mixin text($fontSize:16px){
@@ -63,4 +65,48 @@ body{
 
 .title--small{
     @include title(28px);
+}
+
+
+
+.button{
+    display: block;
+    width: 100%;
+    height: 60px;
+    font-size: 18px;
+    color: variaveis.$secondTextColor;
+    background-color: #6421ff;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-top: 2vw;
+    margin-bottom: 8px;
+}
+
+// Adicione isso no final do arquivo, depois de todos os outros estilos
+.shows__tabs__button {
+    // Garante que os botões das tabs não herdem estilos indesejados
+    all: unset;
+    
+    // Aplica estilos específicos
+    color: variaveis.$secondTextColor;
+    font-size: 20px;
+    border: none;
+    padding: 8px 16px;
+    background: none;
+    text-transform: uppercase;
+    margin: 0 1vw;
+    cursor: pointer;
+    border-bottom: 5px solid transparent;
+    transition: border-color 0.3s ease;
+
+    &--active {
+        border-color: variaveis.$secondTextColor;
+        font-weight: bold;
+    }
+
+    // Remove o efeito hover dos botões comuns
+    &:hover {
+        background: none;
+        color: variaveis.$secondTextColor;
+    }
 }
