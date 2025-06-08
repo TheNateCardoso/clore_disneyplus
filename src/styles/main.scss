@@ -2,24 +2,28 @@
 @use 'hero';
 @use 'shows';
 @use 'combos';
+@use 'devices';
+@use 'faq';
+@use 'footer';
 
 @font-face {
-    font-family: Avenir;
-    src: url('../../assets/fonts/Avenir-Regular.woff2') format('woff2');
+    font-family: 'Avenir';
+    src: url(../assets/fonts/Avenir-Regular.woff2) format('woff2');
     font-weight: 400;
 }
 
+
 @font-face {
-    font-family: Avenir;
-    src: url('../../assets/fonts/Avenir-Bold.woff2') format('woff2');
-    font-weight: 700;
+    font-family: 'Avenir';
+    src: url(../assets/fonts/Avenir-Bold.woff2) format('woff2');
+    font-weight: 400;
 }
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Avenir, sans-serif;
+    font-family: 'Avenir', sans-serif;
 }
 
 body{
@@ -108,5 +112,44 @@ body{
     &:hover {
         background: none;
         color: variaveis.$secondTextColor;
+    }
+}
+
+.image-text-section{
+    padding: 5.6vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    img{
+        max-width: 100%;
+    }
+
+    &__text-container{
+        padding: 2vw;
+
+        h2{
+            margin-bottom: 24px;
+        }
+    }
+
+    &--image-full-width{
+        display: block;
+        position: relative;
+
+        img{
+            width: 100%;
+        }
+
+        &__text-container{
+            position: absolute;
+            top: 0;
+            left: 50%;
+            height: 100%;
+            width: calc(50% - 5.6vw);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
     }
 }
