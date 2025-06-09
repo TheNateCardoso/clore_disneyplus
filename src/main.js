@@ -2,6 +2,20 @@ document.addEventListener('DOMContentLoaded', function(){
     const buttons=document.querySelectorAll('[data-tab-button]');
     const questions=document.querySelectorAll('[data-faq-question]');
     
+    const heroSection=document.querySelector('.hero');
+    const heroHeight=heroSection.clientHeight;
+
+    window;this.addEventListener('scroll', function(){
+        const actualPosition=window.scrollY
+
+        if(actualPosition<heroHeight){
+            hideHeaderItems();
+        } else{
+            showHeaderItems();
+        }
+    })
+
+    //seção shows, programação das abas
     for (let i=0; i<buttons.length;i++){
         buttons[i].addEventListener('click', function(button){
             const targetTab=button.target.dataset.tabButton;
@@ -13,10 +27,21 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     }
 
+    // seção FAQ
     for (let i=0; i<questions.length; i++){
         questions[i].addEventListener('click', toggleAnswer);
     }
 })
+
+function hideHeaderItems(){
+    const header=document.querySelector('header');
+    header.classList.add('header--hidden');
+}
+
+function showHeaderItems(){
+    const header=document.querySelector('header');
+    header.classList.remove('header--hidden');
+}
 
 function toggleAnswer(e){
     const classe ='faq__questions__item--open';
