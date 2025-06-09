@@ -8,6 +8,12 @@
         display: flex;
         justify-content: center;
 
+        @media (max-width: 768px) {
+            white-space: nowrap;
+            overflow-x: scroll;
+            padding-left: 20px;
+        }
+
         &__button {
             // Estilos específicos para os botões das tabs
             color: variaveis.$secondTextColor;
@@ -32,6 +38,10 @@
                 font-weight: bold;
             }
 
+            @media (max-width: 768px) {
+                font-size: 16px;
+            }
+
             // Remove todos os estilos do .button que estão afetando
             &.button {
                 width: auto;
@@ -52,6 +62,10 @@
         display: none;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 24px;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+        }
 
         &--active {
             display: grid;
